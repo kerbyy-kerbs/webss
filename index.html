@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LGU Beach Explore</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    ul {
+      list-style: none;
+    }
+
+    nav {
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(10px);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    nav .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #ff6f61;
+      letter-spacing: 1.5px;
+      cursor: default;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li {
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    nav ul li:hover {
+      color: #ff6f61;
+    }
+
+    section {
+      padding: 80px 20px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      font-weight: 700;
+      color: #205072;
+      margin-bottom: 20px;
+    }
+    p {
+      max-width: 600px;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      color: #3b3b3b;
+    }
+
+    #home {
+      background: url('lgu.jpg') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    #home h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 7px rgba(0,0,0,0.8);
+    }
+    #home p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+    #explore-btn {
+      background: #ff6f61;
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      padding: 15px 50px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(255, 111, 97, 0.7);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    #explore-btn:hover {
+      background: #ff4a3c;
+      transform: scale(1.05);
+    }
+
+    #gallery {
+      display: none;
+      text-align: center;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 20px;
+    }
+    .gallery-grid img, .gallery-grid video {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-grid img:hover, .gallery-grid video:hover {
+      transform: scale(1.05);
+    }
+
+    #contact {
+      background: #205072;
+      color: #f9f4f1;
+      padding: 100px 20px;
+      text-align: center;
+      border-radius: 15px;
+      margin: 60px 20px;
+    }
+    #about, #advertisement {
+      padding: 80px 20px;
+      max-width: 700px;
+      margin: 0 auto 80px;
+      text-align: center;
+    }
+    #about h2, #advertisement h2 {
+      color: #ff6f61;
+    }
+
+    #ad-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      white-space: pre-wrap;
+      color: #333;
+    }
+    #show-ad {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #show-ad:hover {
+      background: #e6554f;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+      #home h1 {
+        font-size: 2.4rem;
+      }
+      #home p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">LGU Beach</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Explore</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#advertisement">Ad</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h1>Welcome to LGU Beach</h1>
+      <p>I hope you enjoy exploring this beautiful beach.</p>
+      <button id="explore-btn">Explore</button>
+    </section>
+
+    <section id="gallery">
+      <h2>Explore the Beach</h2>
+      <div class="gallery-grid">
+        <img src="lgu1.jpg" alt="Beach 1" />
+        <img src="lgu2.jpg" alt="Beach 2" />
+        <img src="lgu6.jpg" alt="Beach 3" />
+        <img src="lgu8.jpg" alt="Beach 4" />
+        <img src="lgu5.jpg" alt="Beach 5" />
+        <video controls poster="lgu6.jpg">
+          <source src="lgu4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>📞 +63 962-831-4646</p>
+    </section>
+
+    <section id="about">
+      <h2>About LGU Beach</h2>
+      <h3>LGU BEACH RENTAL</h3>
+      <div>
+        <p><strong>COTTAGES</strong><br>P500.00/Cottage</p>
+        <p><strong>SOCIAL HALL</strong><br>P6,000.00 (7 tables / 70 chairs)</p>
+        <p><strong>FUNCTION HALL</strong><br>P2,000.00/BLOCK (5 tables / 50 chairs)</p>
+        <p><strong>CONFERENCE HALL</strong><br>P10,000.00 (AIRCON) (7 tables / 70 chairs)</p>
+        <p><strong>CONVENTION HALL</strong><br>P4,000.00 (7 tables / 70 chairs / kitchen)</p>
+      </div>
+    </section>
+
+    <section id="advertisement">
+      <h2>Advertisement</h2>
+      <button id="show-ad">Show Message</button>
+      <p id="ad-message">
+SA TANANG MAG OVER NIGHT WALA NAY TUGOTAN MALIGO SA PAGAT LAPAS SA ALAS 9:00 PM SA CADIE,  
+KAY TING PAHULAY NA SA ATUNG LIFEGUARD  
+PWEDE MAKA LUO BALW ALAS 5:00 SA BUNTAU  
+PACHANG SALAMAT...
+
+BY: MANAGEMENT
+      </p>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('explore-btn').addEventListener('click', function() {
+      const gallery = document.getElementById('gallery');
+      if (gallery.style.display === 'none' || gallery.style.display === '') {
+        gallery.style.display = 'block';
+        gallery.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    document.getElementById('show-ad').addEventListener('click', function() {
+      const adMessage = document.getElementById('ad-message');
+      adMessage.style.display = 'block';
+      adMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>CB
